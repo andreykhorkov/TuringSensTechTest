@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class TuringSensView : TuringSensElement
 {
-    [SerializeField] private BtnView clockView;
-    [SerializeField] private BtnView mainView;
+    [SerializeField] private BtnView clockBtnView;
+    [SerializeField] private BtnView mainBtnView;
     [SerializeField] private CameraView mainCameraView;
 
-    public BtnView ClockView { get { return clockView; } }
-    public BtnView MainView { get { return mainView; } }
+    public BtnView ClockBtnView { get { return clockBtnView; } }
+    public BtnView MainBtnView { get { return mainBtnView; } }
     public CameraView MainCameraView { get { return mainCameraView; } }
 }
