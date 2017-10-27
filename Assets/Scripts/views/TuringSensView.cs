@@ -1,5 +1,4 @@
-﻿using Buttons;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TuringSensView : TuringSensElement
 {

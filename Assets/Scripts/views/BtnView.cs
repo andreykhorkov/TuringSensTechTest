@@ -1,26 +1,32 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Buttons
+public enum Pages
 {
-    public class BtnView : TuringSensElement, IPointerClickHandler
+    main,
+    clock
+}
+
+public class BtnView : TuringSensElement, IPointerClickHandler
+{
+    protected int viewIdToSet;
+    [SerializeField]
+    protected string viewName;
+
+    protected override void Initialize()
     {
-        protected int viewIdToSet;
-        [SerializeField] protected string viewName;
+        base.Initialize();
+        viewIdToSet = Animator.StringToHash(viewName);
+    }
 
-        void Start()
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (App.Model.CurrentPageId == viewIdToSet)  // this check is probably unnecessary since you can`t click btn on the other page
         {
-            Initialize();
+            return;
         }
 
-        protected override void Initialize()
-        {
-            viewIdToSet = Animator.StringToHash(viewName);
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            App.View.MainCameraView.Anim.SetTrigger(viewIdToSet);
-        }
+        App.View.MainCameraView.Anim.SetTrigger(viewIdToSet);
+        App.Model.SetCurrentView(viewIdToSet);
     }
 }

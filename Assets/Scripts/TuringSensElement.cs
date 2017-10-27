@@ -1,10 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TuringSensElement : MonoBehaviour {
+public class TuringSensElement : MonoBehaviour
+{ 
+	public TuringSensApplication App { get; private set; }
 
-	public TuringSensApplication App { get { return FindObjectOfType<TuringSensApplication>(); } }
+    void Start()
+    {
+        Initialize();
+    }
 
-    protected virtual void Initialize() {}
+    protected virtual void Initialize()
+    {
+        App = FindObjectOfType<TuringSensApplication>();
+    }
 }
