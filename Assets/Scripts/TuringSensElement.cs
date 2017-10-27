@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TuringSensElement : MonoBehaviour {
 
-	public TuringSensApplication App { get { return GameObject.FindObjectOfType<TuringSensApplication>(); } }
+	public TuringSensApplication App { get { return FindObjectOfType<TuringSensApplication>(); } }
 
     protected virtual void Initialize() {}
 }

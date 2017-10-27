@@ -2,7 +2,11 @@
 
 public class TuringSensApplication : MonoBehaviour
 {
-    private TuringSensController controller;
-    private TuringSensModel model;
-    private TuringSensView view;
+    [SerializeField] private TuringSensController controller;
+    [SerializeField] private TuringSensModel model;
+    [SerializeField] private TuringSensView view;
+
+    public TuringSensController Controller { get { return controller; } }
+    public TuringSensModel Model { get { return model; } }
+    public TuringSensView View { get { return view; } }
 }

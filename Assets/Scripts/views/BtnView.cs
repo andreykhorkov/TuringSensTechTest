@@ -5,7 +5,6 @@ namespace Buttons
 {
     public class BtnView : TuringSensElement, IPointerClickHandler
     {
-        protected Animator animator;
         protected int viewIdToSet;
         [SerializeField] protected string viewName;
 
@@ -16,13 +15,12 @@ namespace Buttons
 
         protected override void Initialize()
         {
-            animator = GetComponent<Animator>();
             viewIdToSet = Animator.StringToHash(viewName);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            animator.SetTrigger(viewIdToSet);
+            App.View.MainCameraView.Anim.SetTrigger(viewIdToSet);
         }
     }
 }
