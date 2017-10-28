@@ -2,7 +2,7 @@
 
 namespace Pool
 {
-    public abstract class PoolObject : MonoBehaviour
+    public abstract class PoolObject : TuringSensElement
     {
         private string path;
 

@@ -10,7 +10,7 @@ public class ClockView : TuringSensElement
     {
         base.Initialize();
 
-        App.Model.ClockModel.OnTimerTick += DrawTime;
+        App.Controller.ClockController.OnTimerTick += DrawTime;
     }
 
     private void DrawTime(object sender, ClockTickArgs args)

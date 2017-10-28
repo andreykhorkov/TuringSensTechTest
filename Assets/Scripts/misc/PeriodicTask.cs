@@ -11,17 +11,11 @@ public class PeriodicTask
     {
         this.callback = callback;
         SetDelay(delay);
-        Restart();
     }
 
     public void SetDelay(float delay)
     {
         this.delay = delay;
-    }
-
-    public void Restart()
-    {
-        timer = delay;
     }
 
     public void TryExecute()
