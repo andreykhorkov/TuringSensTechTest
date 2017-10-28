@@ -21,12 +21,12 @@ public class BtnView : TuringSensElement, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (App.Model.CurrentPageId == viewIdToSet)  // this check is probably unnecessary since you can`t click btn on the other page
+        if (App.Model.PagesModel.CurrentPageId == viewIdToSet)  // probably unnecessary check, since you can`t click btn on the other page
         {
             return;
         }
 
         App.View.MainCameraView.Anim.SetTrigger(viewIdToSet);
-        App.Model.SetCurrentView(viewIdToSet);
+        App.Model.PagesModel.SetCurrentView(viewIdToSet);
     }
 }

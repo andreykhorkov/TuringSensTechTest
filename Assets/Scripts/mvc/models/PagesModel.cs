@@ -1,4 +1,4 @@
-﻿public class TuringSensModel : TuringSensElement
+﻿public class PagesModel : TuringSensElement
 {
     public int CurrentPageId { get; private set; }
 
