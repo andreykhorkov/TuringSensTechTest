@@ -27,16 +27,14 @@ public class CubeView : PoolObject
 
     public override void OnTakenFromPool()
     {
-
     }
 
     public override void OnReturnedToPool()
     {
-
+        gameObject.transform.position = -Vector3.right*10000;
     }
 
     public override void OnPreWarmed()
     {
-
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public enum Pages
 {
@@ -9,24 +10,20 @@ public enum Pages
 
 public class BtnView : TuringSensElement, IPointerClickHandler
 {
+    [SerializeField] protected string viewName;
+
     protected int viewIdToSet;
-    [SerializeField]
-    protected string viewName;
+    protected Button button;
 
     protected override void Initialize()
     {
         base.Initialize();
         viewIdToSet = Animator.StringToHash(viewName);
+        button = GetComponent<Button>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (App.Model.PagesModel.CurrentPageId == viewIdToSet)  // probably unnecessary check, since you can`t click btn on the other page
-        {
-            return;
-        }
-
-        App.View.MainCameraView.Anim.SetTrigger(viewIdToSet);
-        App.Model.PagesModel.SetCurrentView(viewIdToSet);
+        App.Controller.PagesController.SetPage(viewIdToSet);
     }
 }
