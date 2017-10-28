@@ -63,6 +63,11 @@ namespace Pool
                 objects.Add(GetObject<T>(path));
             }
 
+            for (int i = 0; i < objectCount; i++)
+            {
+                objects[i].ReturnObject();
+            }
+
             foreach (var o in objects)
             {
                 o.OnPreWarmed();
