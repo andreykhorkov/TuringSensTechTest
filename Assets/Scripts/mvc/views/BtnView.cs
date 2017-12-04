@@ -8,9 +8,9 @@ public enum Pages
     clock
 }
 
-public class BtnView : TuringSensElement, IPointerClickHandler
+public class BtnView : TuringSensElement
 {
-    [SerializeField] protected string viewName;
+    [SerializeField] protected PageView pageView;
 
     protected int viewIdToSet;
     protected Button button;
@@ -18,11 +18,12 @@ public class BtnView : TuringSensElement, IPointerClickHandler
     protected override void Initialize()
     {
         base.Initialize();
-        viewIdToSet = Animator.StringToHash(viewName);
+        viewIdToSet = Animator.StringToHash(pageView.name);
         button = GetComponent<Button>();
+        button.onClick.AddListener(OnClick);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    void OnClick()
     {
         App.Controller.PagesController.SetPage(viewIdToSet);
     }
